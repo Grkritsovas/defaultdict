@@ -1,0 +1,32 @@
+from collections import defaultdict
+
+inp=input().split()
+n=inp[0]
+m=inp[1]
+d=defaultdict(list)
+listoflists=list()
+
+for i in range(int(n)):
+    d['A'].append(input())
+for i in range(int(m)):
+    d['B'].append(input())
+    listoflists.append(list())
+lista=list()
+
+p=0
+isfound=False
+for i in d['B']:
+    x=0
+    
+    for k in d['A']:
+        x+=1
+        if i==k:
+            listoflists[p].append(x)
+            isfound=True
+    if not isfound:
+        listoflists[p].append(-1)
+    p+=1
+    isfound=False
+
+for i in listoflists:
+    print(*i)
